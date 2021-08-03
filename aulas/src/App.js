@@ -12,9 +12,8 @@ class App extends Component {
 
       <div>
 
-        <MeuComponentente />
-        <MeusComponentes.TreinaWeb /> {/*Forma de usar montando um componente com um objeto*/}
-        <MeuComponenteEscolhido /> {/*Forma de usar montando um componente com uma variável*/}
+        <MeuComponentente teste='rosa' />
+        <MeuComponenteEscolhido nome="Lucas" /> {/*Forma de usar montando um componente com uma variável*/}
 
       </div>
 

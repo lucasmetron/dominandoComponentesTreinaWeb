@@ -1,24 +1,19 @@
 import React, { Component } from 'react';
-
-// function MeuComponentente() {
-//     return (
-//         <h1>Treina Web</h1>
-//     );
-// }
-
-
 class MeuComponentente extends Component {
 
     render() {
+        { console.log(this) }
+        const { props } = this
+
         return (
-            <h1>Treina Web Classe</h1>
+            <h1>Treina Web Classe {props.teste} er</h1>
         );
     }
 }
 
 export const MeusComponentes = {
-    TreinaWeb: function () {
-        return <h1>Ola Web developers</h1>
+    TreinaWeb: function (props) {
+        return <h1>Olá {props.nome}!</h1>
     },
 
     Hello: () => {
