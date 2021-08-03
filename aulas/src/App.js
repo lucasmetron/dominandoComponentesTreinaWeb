@@ -5,16 +5,17 @@ import MeuComponentente, { MeusComponentes } from './components/MeuComponente'
 class App extends Component {
   render() {
 
-    const nome = 'TreinaWeb';
-    const MeuComponenteEscolhido = MeusComponentes[nome]; {/*Forma de usar montando um componente com uma variável*/ }
+    const dados = {
+      nome: "Lucas",
+      sobrenome: "Rosa",
+      idade: '25'
+    }
 
     return (
 
       <div>
-
-        <MeuComponentente teste='rosa' />
-        <MeuComponenteEscolhido nome="Lucas" /> {/*Forma de usar montando um componente com uma variável*/}
-
+        <MeuComponentente {...dados} /> {/* Operador spread */}
+        <MeuComponentente nome="Lucas" sobrenome="Rosa" idade='25' /> {/* Spread evita isso*/}
       </div>
 
     );
