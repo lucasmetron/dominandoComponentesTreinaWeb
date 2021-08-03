@@ -3,10 +3,12 @@ import React, { Component } from 'react';
 
 export default class VideoPlayer extends Component {
     render() {
+
+        const { video } = this.props
         return (
             <div className='video-player'>
                 <video
-                    src="https://ak.picdn.net/shutterstock/videos/1010998511/preview/stock-footage-shot-of-a-fit-young-woman-exercising-with-pilates-ball-at-gym-female-athlete-doing-workout-using.mp4"
+                    src={video.url}
                     controls autoPlay loop
                 />
                 <button>[ ]</button>
