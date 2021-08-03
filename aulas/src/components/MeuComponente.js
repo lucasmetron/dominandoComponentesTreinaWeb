@@ -6,18 +6,12 @@ class MeuComponentente extends Component {
         const { props } = this
 
         return (
-            <h1>Treina Web Classe {props.teste} er</h1>
+            <ul>
+                <li>Nome: {props.nome}</li>
+                <li>Sobrenome: {props.sobrenome}</li>
+                <li>Idade: {props.idade}</li>
+            </ul>
         );
-    }
-}
-
-export const MeusComponentes = {
-    TreinaWeb: function (props) {
-        return <h1>Olá {props.nome}!</h1>
-    },
-
-    Hello: () => {
-        return <h1>Hello Wolrd</h1>
     }
 }
 
