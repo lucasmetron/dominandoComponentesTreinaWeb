@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import MeuComponentente, { MeusComponentes } from './components/MeuComponente'
+import Time from './components/Time'
 
 class App extends Component {
   render() {
@@ -14,8 +15,10 @@ class App extends Component {
     return (
 
       <div>
-        <MeuComponentente {...dados} /> {/* Operador spread */}
-        <MeuComponentente nome="Lucas" sobrenome="Rosa" idade='25' /> {/* Spread evita isso*/}
+
+        <Time />
+        <MeuComponentente {...dados} />
+
       </div>
 
     );
