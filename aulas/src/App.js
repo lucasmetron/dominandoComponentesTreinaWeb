@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import MeuComponentente, { MeusComponentes } from './components/MeuComponente'
+import MyButton from './components/MyButton'
 import Time from './components/Time'
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
 
         <Time />
         <MeuComponentente {...dados} />
+        <MyButton />
 
       </div>
 
