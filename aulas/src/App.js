@@ -17,8 +17,8 @@ class App extends Component {
 
       <div>
 
-        <Time />
-        <MeuComponentente {...dados} />
+        {/* <Time />
+        <MeuComponentente {...dados} /> */}
         <MyButton />
 
       </div>

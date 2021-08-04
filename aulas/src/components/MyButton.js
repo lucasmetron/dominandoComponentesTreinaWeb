@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Time from './Time';
 
 export default class MyButton extends Component {
     constructor(props) {
@@ -10,21 +11,22 @@ export default class MyButton extends Component {
         this.handleClick = this.handleClick.bind(this)
     }
 
-
     handleClick(a, b) {
-        console.log(a, b)
         this.setState((state, props) => {
-            console.log(props)
             return { isOn: !state.isOn }
         })
-        console.log(this.state.isOn)
     }
 
     render() {
         const { state } = this;
         return (
 
-            <button onClick={(event) => { this.handleClick(50, 70) }} >{state.isOn === true ? "Ligado" : "Desligado"}</button>
+            <div>
+                <button onClick={(event) => { this.handleClick(50, 70) }} >{state.isOn === true ? "Ligado" : "Desligado"}</button>
+                {state.isOn === true ? <Time /> : 'OFF'}
+            </div>
+
+
         );
     }
 }
