@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { VideoService } from '../services/VideoService';
 
 export default function FormVideo(props) {
 
@@ -6,8 +7,14 @@ export default function FormVideo(props) {
     const [img, setImg] = useState('');
     const [video, setVideo] = useState('');
 
-    function salvaVideo() {
+    async function salvaVideo() {
+        let newPostVideo = {
+            img: img,
+            name: nome,
+            url: video
+        }
 
+        await VideoService.input(newPostVideo)
     }
 
 
@@ -28,7 +35,7 @@ export default function FormVideo(props) {
                 <input type="text" name='video' onChange={(event) => { setVideo(event.target.value) }} />
             </label>
 
-            <button onClick={ }>Salvar</button>
+            <button onClick={salvaVideo}>Salvar</button>
 
         </div>
     );

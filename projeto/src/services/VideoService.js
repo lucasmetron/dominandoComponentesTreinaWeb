@@ -8,7 +8,9 @@ export const VideoService = {
 
     },
 
-    input() {
-        return ApiService.post(endpoint)
+    input(newVideo) {
+        console.log(newVideo)
+        console.log(endpoint)
+        return ApiService.post(endpoint, newVideo)
     }
 }
