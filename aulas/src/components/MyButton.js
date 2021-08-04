@@ -11,9 +11,10 @@ export default class MyButton extends Component {
     }
 
 
-    handleClick() {
+    handleClick(a, b) {
+        console.log(a, b)
         this.setState((state, props) => {
-            console.log(state)
+            console.log(props)
             return { isOn: !state.isOn }
         })
         console.log(this.state.isOn)
@@ -23,7 +24,7 @@ export default class MyButton extends Component {
         const { state } = this;
         return (
 
-            <button onClick={this.handleClick} >{state.isOn === true ? "Ligado" : "Desligado"}</button>
+            <button onClick={(event) => { this.handleClick(50, 70) }} >{state.isOn === true ? "Ligado" : "Desligado"}</button>
         );
     }
 }

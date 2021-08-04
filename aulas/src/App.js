@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
-import MeuComponentente, { MeusComponentes } from './components/MeuComponente'
+import MeuComponentente from './components/MeuComponente'
 import MyButton from './components/MyButton'
 import Time from './components/Time'
 
