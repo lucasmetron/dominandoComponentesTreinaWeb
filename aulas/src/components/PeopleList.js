@@ -17,7 +17,9 @@ class PeopleList extends Component {
         return (
             <div>
                 <ul>
-                    {myList.map((item, i) => <li onClick={this.sayMyName.bind(this, item)} key={i}>{item.nome} - {item.idade} anos</li>)}
+                    <React.Fragment>
+                        {myList.map((item, i) => <li onClick={this.sayMyName.bind(this, item)} key={i}>{item.nome} - {item.idade} anos</li>)}
+                    </React.Fragment>
                 </ul>
             </div>
 
@@ -25,5 +27,7 @@ class PeopleList extends Component {
         );
     }
 }
+
+
 
 export default PeopleList
