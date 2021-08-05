@@ -19,7 +19,7 @@ export default function FormVideo(props) {
 
 
     return (
-        <div>
+        <div className='alinhaForm'>
             <label >
                 Nome do video:
                 <input type="text" name='name' onChange={(event) => { setNome(event.target.value) }} />

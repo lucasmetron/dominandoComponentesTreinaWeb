@@ -84,6 +84,16 @@ video{
   background-color: black;
 }
 
+.alinhaForm{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin: auto;
+}
+
 @keyframes ani-video {
   from {
     opacity: 0;
