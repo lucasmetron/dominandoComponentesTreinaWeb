@@ -35,7 +35,7 @@ class App extends Component {
     return (
       <div >
         <VideoPlayer video={state.selectedVideo} />
-        <VideoList videos={state.videos} />
+        <VideoList videos={state.videos} selectedVideo={ } />
         <VideoCinema isActive={false} />
         <FormVideo />
       </div>
