@@ -3,20 +3,35 @@ import React, { Component } from 'react';
 
 class ClickList extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            total: 0
+        }
+
+        this.setTotal = this.setTotal.bind(this)
+    }
+
+
+    setTotal() {
+        this.setState(state => {
+            return {
+                total: state.total + 1
+            }
+        })
+
+    }
+
 
     render() {
         return (
             <ul>
-                <div>abc</div>
-                {this.props.children.map(item => {
+                Total : {this.state.total}
+                {this.props.children.map((item, index) => {
                     return (
-                        <li>
-                            <item.type prop2={this.props.number} > {/*o type pega o tipo do item e cria um novo componente */}
-                                {item.props.children}
-                                {this.props.number}
-                            </item.type>
-                        </li>
-
+                        <item.type handleClick={this.setTotal} index={index} key={index}> {/*o type pega o tipo do item e cria um novo componente */}
+                            {item.props.children}
+                        </item.type>
                     );
                 })}
             </ul>

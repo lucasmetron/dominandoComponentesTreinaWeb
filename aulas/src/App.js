@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import './App.css'
 import ClickList from './components/ClickList'
+import ClickListItem from './components/ClickListItem'
 import MeuComponentente from './components/MeuComponente'
 import MyButton from './components/MyButton'
 import PeopleList from './components/PeopleList'
 import Time from './components/Time'
+
 
 
 class App extends Component {
@@ -12,9 +14,10 @@ class App extends Component {
     return (
 
       <div>
-        <ClickList number='123' >
-          <h1>Qualquer Coisa</h1>
-          <div>Olá</div>
+        <ClickList >
+          <ClickListItem></ClickListItem>
+          <ClickListItem></ClickListItem>
+          <ClickListItem></ClickListItem>
         </ClickList>
       </div>
 
