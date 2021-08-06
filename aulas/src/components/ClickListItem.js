@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-
-
 class ClickListItem extends Component {
 
     static defaultProps = {

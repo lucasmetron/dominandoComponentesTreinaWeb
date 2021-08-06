@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-
-
 class ClickList extends Component {
 
     constructor(props) {
@@ -11,7 +9,6 @@ class ClickList extends Component {
 
         this.setTotal = this.setTotal.bind(this)
     }
-
 
     setTotal() {
         this.setState(state => {
