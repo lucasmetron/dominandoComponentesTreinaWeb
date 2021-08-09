@@ -10,14 +10,28 @@ class ClickList extends Component {
         }
 
         this.setTotal = this.setTotal.bind(this)
+        this.restart = this.restart.bind(this)
     }
 
     componentDidMount() {
-        Channel.on('listItem:click', this.setTotal) //inciando canal
+        Channel.on('listItem:click', this.setTotal)
     }
 
     componentWillUnmount() {
-        Channel.removeListener('listItem:click', this.setTotal) //se o componente for removido ele vai remover o canal
+        Channel.removeListener('listItem:click', this.setTotal)
+    }
+
+    componentDidCatch(error) { //Executado caso o ohuver um erro 
+        this.setState({
+            hasError: true
+        })
+    }
+
+    restart() {
+        this.setState({
+            total: 0,
+            hasError: false
+        })
     }
 
     setTotal() {
@@ -31,9 +45,14 @@ class ClickList extends Component {
 
 
     render() {
+        const { state } = this
+        if (state.hasError) {
+            return <button onClick={this.restart}>Restart</button>
+        }
+
         return (
             <ul>
-                Total : {this.state.total}
+                Total : {state.total}
                 {this.props.children.map((item, index) => {
                     return (
                         <item.type index={index} key={index}> {/*o type pega o tipo do item e cria um novo componente */}
