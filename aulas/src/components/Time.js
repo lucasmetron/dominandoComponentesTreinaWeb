@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom'
 
 export default class Time extends Component {
     constructor(props) {
@@ -14,7 +15,6 @@ export default class Time extends Component {
     componentDidMount() {
         this.interval = setInterval(() => {
             this.setState((state, props) => {
-                console.log(this.state.time)
                 return {
                     time: state.time + 1
                 }
@@ -30,7 +30,9 @@ export default class Time extends Component {
 
 
     render() {
-        const { state } = this;
-        return <div>{state.time}</div>
+        const { state, props } = this;
+        const element = <div>{state.time}</div>
+
+        return props.container ? ReactDOM.createPortal(element, props.container) : 'Carregando'; //1 o que iremos renderizar e 2 onde iremos renderizar
     }
 }
