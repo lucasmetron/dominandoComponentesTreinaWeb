@@ -21,7 +21,7 @@ class ClickList extends Component {
         Channel.removeListener('listItem:click', this.setTotal)
     }
 
-    componentDidCatch(error) { //Executado caso o ohuver um erro 
+    componentDidCatch(error) { //Executado caso o houver um erro 
         this.setState({
             hasError: true
         })
