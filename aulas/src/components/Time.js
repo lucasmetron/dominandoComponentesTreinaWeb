@@ -6,7 +6,6 @@ export default class Time extends Component {
         super(props);
         this.state = {
             time: 0,
-            teste: 'Lucas'
         }
 
 
