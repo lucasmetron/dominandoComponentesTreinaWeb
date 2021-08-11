@@ -26,15 +26,12 @@ class App extends Component {
     this.selectedVideo = this.selectedVideo.bind(this)
     this.toggleCinema = this.toggleCinema.bind(this)
 
-
-    { console.log(this.inlineVideo) }
   }
 
   async componentDidMount() {
 
     const videosReq = await VideoService.list();
     this.setState({ videos: videosReq })
-    // this.selectedVideo(this.state.videos[0])
     Channel.on('video:select', this.selectedVideo)
     Channel.on('video:toggle-cinema', this.toggleCinema)
 
