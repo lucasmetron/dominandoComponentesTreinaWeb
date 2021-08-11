@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+
 import { VideoService } from './services/VideoService';
 import { Channel } from './services/EventsService'
 import VideoList from './components/VideoList';
@@ -16,12 +17,17 @@ class App extends Component {
     this.state = {
       videos: [],
       selectedVideo: {},
+      videoContainerElement: this.inlineVideo
     }
-
-    this.selectedVideo = this.selectedVideo.bind(this)
 
     this.inlineVideo = React.createRef();
     this.cinemaVideo = React.createRef();
+
+    this.selectedVideo = this.selectedVideo.bind(this)
+    this.toggleCinema = this.toggleCinema.bind(this)
+
+
+    { console.log(this.inlineVideo) }
   }
 
   async componentDidMount() {
@@ -30,22 +36,36 @@ class App extends Component {
     this.setState({ videos: videosReq })
     // this.selectedVideo(this.state.videos[0])
     Channel.on('video:select', this.selectedVideo)
+    Channel.on('video:toggle-cinema', this.toggleCinema)
 
   }
 
   componentWillUnmount() {
     Channel.removeListener('video:select', this.selectedVideo);
+    Channel.removeListener('video:toggle-cinema', this.toggleCinema);
+  }
+
+  toggleCinema() {
+    const currentElement = this.state.videoContainerElement;
+    const newContainer = currentElement === this.inlineVideo ? this.cinemaVideo : this.inlineVideo;
+    console.log('cheguei')
+    this.setState({
+      videoContainerElement: newContainer
+    })
+
   }
 
   selectedVideo(video) {
     this.setState({ selectedVideo: video })
   }
 
+
+
   render() {
     const { state } = this
     return (
       <div >
-        <VideoPlayer video={state.selectedVideo} />
+        <VideoPlayer video={state.selectedVideo} container={state.videoContainerElement} />
 
         <VideoInline>
           <div ref={this.inlineVideo}></div>
@@ -53,7 +73,7 @@ class App extends Component {
 
         <VideoList videos={state.videos} />
 
-        <VideoCinema isActive={false} >
+        <VideoCinema isActive={state.videoContainerElement === this.cinemaVideo} >
           <div ref={this.cinemaVideo}></div>
         </VideoCinema>
 
