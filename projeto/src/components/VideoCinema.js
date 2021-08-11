@@ -1,13 +1,15 @@
 import React from 'react';
 
-export default function VideoCinema(props) {
+function VideoCinema(props) {
     const style = {
-        display: props.isActive ? 'inline-block' : 'none'
+        display: (props.isActive ? 'inline-block' : 'none')
     }
 
     return (
-        <div className='video-cinema' style={style}>
+        <div className="video-cinema" style={style} >
             {props.children}
         </div>
     );
 }
+
+export default VideoCinema;
