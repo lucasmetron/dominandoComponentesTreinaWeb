@@ -8,7 +8,7 @@ import MyVideo from './components/MyVideo'
 import PeopleList from './components/PeopleList'
 import Time from './components/Time'
 
-
+import { MyContext } from './services/Mycontext'
 
 class App extends Component {
 
@@ -19,7 +19,8 @@ class App extends Component {
     this.item2 = React.createRef();
 
     this.state = {
-      selectedItem: this.item2
+      selectedItem: this.item2,
+      username: 'Lucas'
     }
 
     this.toggleItem = this.toggleItem.bind(this)
@@ -50,13 +51,18 @@ class App extends Component {
 
         </div>
 
+        <MyContext.Provider value={this.state}>
 
-        <MyVideo src='https://storage.coverr.co/videos/01rZ72OIlq02ZVbbsZrddweEM9NOkA1zAv/download?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6Ijg3NjdFMzIzRjlGQzEzN0E4QTAyIiwiaWF0IjoxNjI4Mjc4NzczfQ.UBFwT_-zlQaEBe6QI4cExAVhn-yLYILy5u3FSZuqrIo&filename=Woman posing in front of blue wall' />
-        <ClickList >
-          <ClickListItem></ClickListItem>
-          <ClickListItem></ClickListItem>
-          <ClickListItem></ClickListItem>
-        </ClickList>
+          <MyVideo src='https://storage.coverr.co/videos/01rZ72OIlq02ZVbbsZrddweEM9NOkA1zAv/download?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6Ijg3NjdFMzIzRjlGQzEzN0E4QTAyIiwiaWF0IjoxNjI4Mjc4NzczfQ.UBFwT_-zlQaEBe6QI4cExAVhn-yLYILy5u3FSZuqrIo&filename=Woman posing in front of blue wall' />
+          <ClickList >
+            <ClickListItem></ClickListItem>
+            <ClickListItem></ClickListItem>
+            <ClickListItem></ClickListItem>
+          </ClickList>
+
+        </MyContext.Provider>
+
+
       </div>
 
     );
